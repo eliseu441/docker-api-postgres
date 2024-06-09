@@ -1,28 +1,19 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { MovieModule } from './movie/movie.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { MovieModule } from './movie/movie.module';
+import { PrismaService } from './prisma/prisma.service';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'my-postgres',
-      port: 5432,
-      username: 'postgres',
-      password: '123',
-      database: 'postgres',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
-    }),
-    MovieModule,
-    AuthModule, 
-    UsersModule
+    MovieModule, 
+    ProductModule,
+    UsersModule,
+    AuthModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [PrismaService],
 })
 export class AppModule {}

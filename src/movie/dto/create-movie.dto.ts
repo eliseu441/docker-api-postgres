@@ -1,14 +1,7 @@
-import {
-    IsNotEmpty,
-    MinLength,
-  } from 'class-validator';
-  
-  const passwordRegEx =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$/;
-  
-  export class CreateMovieDto {
-    @IsNotEmpty()
-    @MinLength(3, { message: 'filme deve conter ao menos 3 caracteres.' })
-    filme: string;
-  
-  }
+import { IsNotEmpty, IsString } from 'class-validator';
+
+export class CreateMovieDto {
+  @IsNotEmpty({ message: 'O nome não pode ser vazio.' })
+  @IsString({ message: 'O nome não pode ser vazio.' })
+  name: string;
+}

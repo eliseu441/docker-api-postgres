@@ -3,6 +3,11 @@ import { AppModule } from './app.module';
 import * as session from 'express-session'; 
 import * as passport from 'passport'; 
 
+//configuração pra dar polyfill na porra do bigint
+
+BigInt.prototype['toJSON'] = function () { 
+  return this.toString()
+}
 passport.serializeUser(function(user, done) { 
   done(null, user); 
 }); 

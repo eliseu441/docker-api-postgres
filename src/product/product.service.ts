@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMovieDto } from './dto/create-movie.dto';
-import { UpdateMovieDto } from './dto/update-movie.dto';
-import { MovieRepository } from './repository/movie.repository';
+import { CreateProductDto } from './dto/create-product.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
+import { ProductRepository } from './repository/product.repository';
 
 @Injectable()
-export class MovieService {
-  constructor(private readonly repository: MovieRepository) {}
+export class ProductService {
+  constructor(private readonly repository: ProductRepository) {}
 
   async paginate(
     page: number,
@@ -41,12 +41,12 @@ export class MovieService {
     return await this.repository.findById(id);
   }
 
-  async create(createMovieDTO: CreateMovieDto) {
-    return await this.repository.create(createMovieDTO);
+  async create(createProductDTO: CreateProductDto) {
+    return await this.repository.create(createProductDTO);
   }
 
-  async update(id: bigint, updateMovieDTO: UpdateMovieDto) {
-    return await this.repository.update(id, updateMovieDTO);
+  async update(id: bigint, updateProductDTO: UpdateProductDto) {
+    return await this.repository.update(id, updateProductDTO);
   }
 
   async remove(id: bigint) {

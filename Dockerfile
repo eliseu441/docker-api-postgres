@@ -19,5 +19,8 @@ RUN npm run build
 # Exponha a porta que a aplicação usa
 EXPOSE 3000
 
+# add this line
+RUN apt-get update -y && apt-get install -y openssl
+
 # Defina o comando para rodar a aplicação
 CMD [ "npm", "run", "start:prod" ]
