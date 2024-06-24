@@ -32,6 +32,8 @@ faça o docker-compose build e depois docker-compose up
 entrar dentro do terminal container:
 docker exec -it "id do container" bash
 
+lembrar de criar yml para criar docker sem comandos.
+
 
 
 
